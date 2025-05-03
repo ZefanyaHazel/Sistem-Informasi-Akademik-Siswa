@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin</title>
+    <link rel="stylesheet" href="../style2.css">
+</head>
+
+<body>
+    <div class="left">
+        <nav>
+            <div class="info">
+                <img src="../assets/Logoht.png" alt="">
+                <p>Admin</p>
+            </div>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="siswa.html">Data Siswa</a></li>
+                <li><a href="guru.html">Data Guru</a></li>
+                <li><a href="jurusan.html">Jurusan</a></li>
+                <li><a href="jadwal.html">Jadwal</a></li>
+                <li><a href="pengumuman.html">Pengumuman</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="pengaturan.html">Pengaturan</a></li>
+                <li><a href="../index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="right">
+        <div class="container">
+            <div class="content">
+                <h2>Jadwal</h2>
+                <hr>
+                <div class="filter">
+                    <p>Filter Jurusan</p>
+                    <select id="jurusanFilter" onchange="renderTable()">
+                        <option value="">▼</option>
+                        <option value="PPLG">PPLG</option>
+                        <option value="DKV">DKV</option>
+                    </select>
+                </div>
+
+                <!-- Tabel Siswa -->
+                <div class="table-wrapper">
+                    <table id="siswaTable">
+                        <thead>
+                            <tr>
+                                <th>Hari</th>
+                                <th>Jam</th>
+                                <th>Mapel</th>
+                                <th>Guru</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <script>
+            const siswaData = [{
+                    hari: 'Senin',
+                    jam: '08:00',
+                    mapel: 'Matematika',
+                    jurusan: 'PPLG'
+                }
+            ];
+
+            function renderTable() {
+                const filter = document.getElementById('jurusanFilter').value;
+                const tbody = document.querySelector('#siswaTable tbody');
+                tbody.innerHTML = '';
+
+                const filteredData = filter ? siswaData.filter(siswa => siswa.jurusan === filter) : siswaData;
+
+                filteredData.forEach(siswa => {
+                    const row = `<tr>
+          <td class="nisn">${siswa.hari}</td>
+          <td>${siswa.jam}</td>
+          <td>${siswa.mapel}</td>
+          <td>${siswa.jurusan}</td>
+        </tr>`;
+                    tbody.innerHTML += row;
+                });
+            }
+            // Tampilkan semua data saat pertama kali
+            window.onload = renderTable;
+        </script>
+</body>
+
+</html>

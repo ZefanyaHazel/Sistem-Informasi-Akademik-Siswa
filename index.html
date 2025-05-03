@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="loading-screen">
+        <div class="loader"></div>
+    </div>
+    <nav>
+        <div class="navbar">
+            <img src="assets/Logoht.png" alt="">
+            <ul>
+                <li><a href="#visi-misi">Visi & Misi</a></li>
+                <li><a href="#program">Program</a></li>
+                <li><a href="#sarana">Sarana</a></li>
+                <li><a href="#prestasi">Prestasi</a></li>
+            </ul>
+            <a href="login.html" class="login-btn">login</a>
+        </div>
+    </nav>
+    <div class="hero-section">
+        <img src="assets/hero-img.jpg" alt="">
+        <div class="content">
+            <h1>Selamat Datang di HANGTUAH SIAKAD!</h1>
+            <p>Login untuk mengakses Sistem Informasi Akademik SMK Hang Tuah 1 Jakarta!</p>
+            <a href="login.html">Login</a>
+        </div>
+    </div>
+    <section id="visi-misi">
+        <h2 class="section-title">Visi & Misi</h2>
+        <div class="card">
+            <h3>Visi</h3>
+            <p>Menjadi sekolah unggulan yang menghasilkan lulusan profesional, berkarakter, dan berdaya saing global.
+            </p>
+            <h3>Misi</h3>
+            <ul>
+                <li>Meningkatkan kualitas pembelajaran dan kurikulum.</li>
+                <li>Mendorong pengembangan soft skills dan karakter siswa.</li>
+                <li>Membangun kerja sama dengan industri dan dunia kerja.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="program">
+        <h2 class="section-title">Program Jurusan</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Rekayasa Perangkat Lunak</h3>
+                <p>Fokus pada pengembangan aplikasi dan perangkat lunak modern.</p>
+            </div>
+            <div class="card">
+                <h3>Teknik Komputer dan Jaringan</h3>
+                <p>Belajar tentang infrastruktur jaringan dan keamanan TI.</p>
+            </div>
+            <div class="card">
+                <h3>Multimedia</h3>
+                <p>Mengembangkan keterampilan dalam desain grafis, animasi, dan video editing.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sarana">
+        <h2 class="section-title">Sarana Pembelajaran</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Lab Komputer</h3>
+                <p>Dilengkapi dengan komputer modern untuk praktik TI.</p>
+            </div>
+            <div class="card">
+                <h3>Studio Multimedia</h3>
+                <p>Fasilitas untuk editing video, animasi, dan produksi konten digital.</p>
+            </div>
+            <div class="card">
+                <h3>Ruang Kelas Interaktif</h3>
+                <p>Kelas yang didukung teknologi untuk pembelajaran efektif.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="prestasi">
+        <h2 class="section-title">Prestasi</h2>
+        <div class="card">
+            <ul>
+                <li>Juara 1 Lomba Web Design tingkat nasional 2023</li>
+                <li>Finalis LKS SMK bidang IT Software Solution</li>
+                <li>Top 10 SMK terbaik DKI Jakarta versi Kemendikbud</li>
+            </ul>
+        </div>
+    </section>
+    <section id="alamat">
+        <h2 class="section-title">Profil Sekolah</h2>
+        <div class="card">
+            <ul>
+                <li>Jalan Tabah Raya no. 1 RT 01/09 14250</li>
+                <li>Telp: 08212312124</li>
+                <li>smkhtone@yahoo.co.id</li>
+            </ul>
+        </div>
+    </section>
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById("loading-screen").style.display = "none";
+                document.getElementById("main-content").style.display = "block";
+            }, 500); // 1 detik = 1000 ms
+        });
+    </script>
+    <script src="main.js"></script>
+</body>
+
+</html>

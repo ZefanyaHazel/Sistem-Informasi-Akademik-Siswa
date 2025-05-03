@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin</title>
+    <link rel="stylesheet" href="../style2.css">
+</head>
+
+<body>
+    <div class="left">
+        <nav>
+            <div class="info">
+                <img src="../assets/Logoht.png" alt="">
+                <p>Admin</p>
+            </div>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="siswa.html">Data Siswa</a></li>
+                <li><a href="guru.html">Data Guru</a></li>
+                <li><a href="jurusan.html">Jurusan</a></li>
+                <li><a href="jadwal.html">Jadwal</a></li>
+                <li><a href="pengumuman.html">Pengumuman</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="pengaturan.html">Pengaturan</a></li>
+                <li><a href="../index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="right">
+        <div class="container">
+            <div class="content">
+                <h2>Data Jurusan</h2>
+                <hr>
+                <div class="table-wrapper">
+                    <table id="jurusanTable">
+                        <thead>
+                            <tr>
+                                <th>Jurusan</th>
+                                <th>Jumlah Siswa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <script>
+            const jurusanData = [{
+                    nama: 'RPL',
+                    jumlah_siswa: '120'
+                },
+                {
+                    nama: 'DKV',
+                    jumlah_siswa: '100'
+                }
+            ];
+
+            function renderTable() {
+                const tbody = document.querySelector('#jurusanTable tbody');
+                tbody.innerHTML = '';
+
+                jurusanData.forEach(jurusan => {
+                    const row = `<tr>
+              <td class="nisn">${jurusan.nama}</td>
+              <td>${jurusan.jumlah_siswa}</td>
+            </tr>`;
+                    tbody.innerHTML += row;
+                });
+            }
+            // Tampilkan semua data saat pertama kali
+            window.onload = renderTable;
+        </script>
+</body>
+
+</html>

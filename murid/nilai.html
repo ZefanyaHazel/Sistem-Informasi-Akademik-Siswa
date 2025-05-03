@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin</title>
+    <link rel="stylesheet" href="../style2.css">
+</head>
+
+<body>
+    <div class="left">
+        <nav>
+            <div class="info">
+                <img src="../assets/Logoht.png" alt="">
+                <p>Guru</p>
+            </div>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="nilai.html">Nilai</a></li>
+                <li><a href="jadwal.html">Jadwal</a></li>
+                <li><a href="pengumuman.html">Pengumuman</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="../index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="right">
+        <div class="container">
+            <div class="content">
+                <h2>Siswa</h2>
+                <hr>
+                <div class="table-wrapper">
+                    <table id="nilaiTable">
+                        <thead>
+                            <tr>
+                                <th>Mapel</th>
+                                <th>Nilai</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <a href="rapor_bayangan.pdf" target="_blank">
+                <button
+                    style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
+                    Lihat Rapor Bayangan
+                </button>
+            </a>
+        </div>
+        <script>
+            const nilaiTable = [{
+                    mapel: 'MPPRPL',
+                    nilai: '98'
+                },
+                {
+                    mapel: 'KKRPL',
+                    nilai: '100'
+                }
+            ];
+            const tbody = document.querySelector('#nilaiTable tbody');
+            tbody.innerHTML = '';
+
+            nilaiTable.forEach(siswa => {
+                const row = `<tr>
+          <td class="nisn">${siswa.mapel}</td>
+          <td>${siswa.nilai}</td>
+        </tr>`;
+                tbody.innerHTML += row;
+            });
+            // Tampilkan semua data saat pertama kali
+            window.onload = renderTable;
+        </script>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin</title>
+    <link rel="stylesheet" href="../style2.css">
+</head>
+
+<body>
+    <div class="left">
+        <nav>
+            <div class="info">
+                <img src="../assets/Logoht.png" alt="">
+                <p>Guru</p>
+            </div>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="nilai.html">Nilai</a></li>
+                <li><a href="jadwal.html">Jadwal</a></li>
+                <li><a href="pengumuman.html">Pengumuman</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="../index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="right">
+        <div class="container">
+            <div class="content">
+                <h2>INPUT NILAI</h2>
+
+                <div class="form-group">
+                    <div style="flex: 1;">
+                        <label for="kelas">Pilih Kelas:</label>
+                        <select id="kelas">
+                            <option value="XI PPLG 1">XII PPLG</option>
+                            <option value="XI PPLG 2">XII DKV</option>
+                        </select>
+                    </div>
+                    <div style="flex: 1;">
+                        <label for="mapel">Pilih Mapel</label>
+                        <select id="mapel">
+                            <option value="KKRPL">KKRPL</option>
+                            <option value="MPPRPL">MPPRRL</option>
+                        </select>
+                    </div>
+                </div>
+
+                <table id="nilaiTable">
+                    <thead>
+                        <tr>
+                            <th>Nama Siswa</th>
+                            <th>Tugas</th>
+                            <th>UTS</th>
+                            <th>UAS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Zefanya Hazel Supit</td>
+                            <td><input type="number" min="0" max="100" class="tugas" /></td>
+                            <td><input type="number" min="0" max="100" class="uts" /></td>
+                            <td><input type="number" min="0" max="100" class="uas" /></td>
+                        </tr>
+                        <!-- Tambahkan baris siswa lain jika diperlukan -->
+                    </tbody>
+                </table>
+
+                <button onclick="simpanNilai()">SIMPAN</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        function simpanNilai() {
+            const rows = document.querySelectorAll("#nilaiTable tbody tr");
+            let hasil = [];
+
+            rows.forEach(row => {
+                const nama = row.children[0].textContent;
+                const tugas = row.querySelector(".tugas").value;
+                const uts = row.querySelector(".uts").value;
+                const uas = row.querySelector(".uas").value;
+
+                hasil.push({
+                    nama,
+                    tugas,
+                    uts,
+                    uas
+                });
+            });
+
+            console.log("Data yang disimpan:", hasil);
+            alert("Data berhasil disimpan!");
+        }
+    </script>
+</body>
+
+</html>
