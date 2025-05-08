@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil Sekolah - SMA Harapan Bangsa</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<style>
+    html{
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background: #f4f4f4;
+        color: #333;
+    }
+
+    header {
+        background: #005f73;
+        color: white;
+        padding: 1em;
+        text-align: center;
+    }
+
+    nav ul {
+        background: #0a9396;
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 0 1em;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        padding: 0.5em;
+    }
+
+    main {
+        padding: 2em;
+        max-width: 800px;
+        margin: auto;
+        background: white;
+    }
+
+    h2 {
+        color: #005f73;
+    }
+
+    footer {
+        text-align: center;
+        padding: 1em;
+        background: #0a9396;
+        color: white;
+        margin-top: 2em;
+    }
+
+    li{
+        
+        list-style: none;
+    }
+
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+    }
+
+    .card {
+        background: #e0fbfc;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 1em;
+        width: calc(50% - 1em);
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h4 {
+        margin: 0.2em 0;
+        color: #005f73;
+    }
+
+    .card p {
+        margin: 0.2em 0;
+    }
+</style>
+
+<body>
+    <header>
+        <h1>SMA Harapan Bangsa</h1>
+        <p>Menjadi Sekolah Unggulan di Era Digital</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#visi">Visi & Misi</a></li>
+            <li><a href="#sarana">Sarana</a></li>
+            <li><a href="#program">Program</a></li>
+            <li><a href="#berita">Berita</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="visi">
+            <h2>Visi & Misi</h2>
+            <div id="visiMisi"></div>
+        </section>
+
+        <section id="sarana">
+            <h2>Sarana & Prasarana</h2>
+            <ul id="saranaList"></ul>
+        </section>
+
+        <section id="program">
+            <h2>Program Unggulan</h2>
+            <ul id="programList"></ul>
+        </section>
+
+        <section id="berita">
+            <h2>Berita Terbaru</h2>
+            <ul id="beritaList"></ul>
+        </section>
+        <section id="guru">
+            <h2>Profil Guru</h2>
+            <div id="guruList" class="card-container"></div>
+        </section>
+
+        <section id="siswa">
+            <h2>Profil Siswa</h2>
+            <div id="siswaList" class="card-container"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SMA Harapan Bangsa</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+<script>
+    // Data dummy
+    const visiMisi = {
+        visi: "Menjadi sekolah unggulan yang mencetak generasi cerdas, berkarakter, dan siap menghadapi era global.",
+        misi: [
+            "Menyelenggarakan pendidikan berbasis teknologi dan nilai-nilai moral.",
+            "Meningkatkan kualitas guru dan tenaga kependidikan.",
+            "Mendorong partisipasi aktif siswa dalam kegiatan akademik dan non-akademik.",
+            "Membangun lingkungan belajar yang aman, nyaman, dan inklusif."
+        ]
+    };
+
+    const sarana = [
+        "Ruang kelas ber-AC",
+        "Laboratorium IPA dan Komputer",
+        "Perpustakaan digital",
+        "Lapangan olahraga multifungsi",
+        "Aula dan ruang seni",
+        "Wi-Fi untuk siswa dan guru",
+        "Masjid sekolah",
+        "Kantin sehat"
+    ];
+
+    const program = [
+        "Program Bilingual (Bahasa Inggris & Indonesia)",
+        "Kelas Tahfidz dan Akhlak",
+        "Ekskul Robotics dan Coding Club",
+        "Program Pertukaran Pelajar",
+        "Bimbingan Olimpiade Nasional dan Internasional",
+        "Green School Program"
+    ];
+
+    const berita = [
+        "Tim Futsal SMA Harapan Bangsa Juara 1 Turnamen Antar Sekolah 2025",
+        "Peluncuran Aplikasi E-Learning Sekolah Berbasis Android",
+        "Kunjungan Edukasi ke Museum Nasional oleh Kelas X IPA",
+        "Siswa SMAHB Lolos SNBT 2025 ke Universitas Ternama"
+    ];
+
+    const guru = [{
+        nama: "Farah Hidayatul Afifah, S.T.",
+        tempatLahir: "Jakarta",
+        tanggalLahir: "15-5-1998",
+        kelamin: "Perempuan",
+        agama: "Islam",
+        alamat: "Jl. Merdeka No.1, Jakarta",
+        mapel: "Mata Pelajaran Pilihan",
+        foto: "assets/profile-guru.jpg"
+    }];
+
+    const siswa = [{
+        nis: "0067112636",
+        nama: "Zefanya Hazel Supit",
+        kelas: "XII RPL",
+        tempatLahir: "Jakarta",
+        tanggalLahir: "16-11-2006",
+        kelamin: "Laki-laki",
+        agama: "Islam",
+        alamat: "Jl. Bakti Abri",
+        foto: "assets/profile-siswa.jpg"
+    }];
+
+    // Render guru
+    document.getElementById("guruList").innerHTML = guru.map(g => `
+  <div class="card">
+    <img src="${g.foto}" alt="${g.nama}" style="width:100%; border-radius: 10px;" />
+    <h4>${g.nama}</h4>
+    <p><strong>Mapel:</strong> ${g.mapel}</p>
+    <p><strong>Tempat, Tgl Lahir:</strong> ${g.tempatLahir}, ${g.tanggalLahir}</p>
+    <p><strong>Jenis Kelamin:</strong> ${g.kelamin}</p>
+    <p><strong>Agama:</strong> ${g.agama}</p>
+    <p><strong>Alamat:</strong> ${g.alamat}</p>
+  </div>
+`).join('');
+
+    // Render siswa
+    document.getElementById("siswaList").innerHTML = siswa.map(s => `
+  <div class="card">
+    <img src="${s.foto}" alt="${s.nama}" style="width:100%; border-radius: 10px;" />
+    <h4>${s.nama}</h4>
+    <p><strong>NIS:</strong> ${s.nis}</p>
+    <p><strong>Kelas:</strong> ${s.kelas}</p>
+    <p><strong>Tempat, Tgl Lahir:</strong> ${s.tempatLahir}, ${s.tanggalLahir}</p>
+    <p><strong>Jenis Kelamin:</strong> ${s.kelamin}</p>
+    <p><strong>Agama:</strong> ${s.agama}</p>
+    <p><strong>Alamat:</strong> ${s.alamat}</p>
+    <p><strong>Cita-cita:</strong> ${s.citaCita}</p>
+  </div>
+`).join('');
+
+
+
+    // Tampilkan konten ke halaman
+    document.getElementById("visiMisi").innerHTML = `
+  <p><strong>Visi:</strong> ${visiMisi.visi}</p>
+  <p><strong>Misi:</strong></p>
+  <ul>${visiMisi.misi.map(m => `<li>${m}</li>`).join('')}</ul>
+`;
+
+    document.getElementById("saranaList").innerHTML = sarana.map(item => `<li>${item}</li>`).join('');
+    document.getElementById("programList").innerHTML = program.map(item => `<li>${item}</li>`).join('');
+    document.getElementById("beritaList").innerHTML = berita.map(item => `<li>${item}</li>`).join('');
+</script>
+
+</html>
